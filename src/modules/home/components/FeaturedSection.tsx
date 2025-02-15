@@ -1,10 +1,12 @@
-import { Grid } from '@mui/material';
+import { Grid, Button } from '@mui/material';
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { SectionItem } from '../../../types/config';
 import { AssetCardWithData } from '../../nft/components/AssetCardWidthData';
 import CollectionCardWithData from './CollectionCardWithData';
+import Image from "next/image";
+
 
 interface Props {
   title: React.ReactNode | React.ReactNode[];
@@ -39,17 +41,49 @@ export function FeaturedSection({ title, items }: Props) {
   };
 
   return (
-    <Box bgcolor="#111" color="#fff" py={8}>
-      <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography align="center" variant="h3" component="h1">
-              {title}
-            </Typography>
-          </Grid>
-          {renderItems()}
+    <Box py={8} bgcolor="white">
+    <Container maxWidth="lg">
+      <Grid container alignItems="center" spacing={4}>
+        {/* Logo / Image */}
+        <Grid item xs={12} md={4} display="flex" justifyContent="center">
+          <Image
+            src="/assets/images/landbox.png"
+            alt="Logo"
+            width={150}
+            height={150}
+          />
         </Grid>
-      </Container>
-    </Box>
+
+        {/* Text Content */}
+        <Grid item xs={12} md={8}>
+          <Typography variant="body2" color="gray">
+            Join the future of real estate today.
+          </Typography>
+          <Typography variant="h4" fontWeight="bold" mt={1}>
+            Buy, Sell, and Own RWA properties seamlessly with NFTs
+          </Typography>
+          <Typography variant="body1" color="gray" mt={2}>
+            We revolutionizing Indonesia real estate market with Blockchain
+            and making property transactions faster, transparent, and
+            accessible. By tokenizing properties as NFTs, we eliminate
+            lengthy paperwork, reduce costs, and ensure secure ownership
+            records on the blockchain.
+          </Typography>
+
+          <Button
+            variant="contained"
+            sx={{
+              mt: 3,
+              backgroundColor: "black",
+              color: "white",
+              "&:hover": { backgroundColor: "#333" },
+            }}
+          >
+            GET STARTED
+          </Button>
+        </Grid>
+      </Grid>
+    </Container>
+  </Box>
   );
 }
