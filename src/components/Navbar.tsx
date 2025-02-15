@@ -28,7 +28,6 @@ import {
 } from '@mui/material';
 import { useWeb3React } from '@web3-react/core';
 
-
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import {
   getChainLogoImage,
@@ -202,10 +201,6 @@ function Navbar() {
               primary={<FormattedMessage id="wallet" defaultMessage="Wallet" />}
             />
           </ListItem>
-          {/* <ListItem button onClick={handleDisconnect}>
-            <ListItemIcon></ListItemIcon>
-            <ListItemText primary="Disconnect" />
-          </ListItem> */}
         </List>
       </Popover>
       <AppBar variant="elevation" color="default" position="sticky">
@@ -221,8 +216,35 @@ function Navbar() {
               <MenuIcon />
             </IconButton>
           )}
+          <Stack
+            direction="row"
+            sx={{
+              flexGrow: 1,
+              display: { xs: 'none', md: 'flex' },
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              spacing: 2,
+            }}
+          >
+            <Link
+              color="inherit"
+              href="/"
+              sx={{ fontWeight: 600, textDecoration: 'none', mr: 2 }}
+            >
+              <FormattedMessage id="home" defaultMessage="Home" />
+            </Link>
+            {isActive && (
+              <Link
+                color="inherit"
+                href="/wallet"
+                sx={{ fontWeight: 600, textDecoration: 'none' }}
+              >
+                <FormattedMessage id="wallet" defaultMessage="Wallet" />
+              </Link>
+            )}
+          </Stack>
           {appConfig?.logo ? (
-            <Link href="/">
+            <Link href="/" sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
               <LogoImage
                 src={appConfig?.logo.url}
                 alt={appConfig.name}
@@ -238,10 +260,11 @@ function Navbar() {
                       }
                 }
               />
+              
             </Link>
           ) : (
             <Link
-              sx={{ textDecoration: 'none' }}
+              sx={{ textDecoration: 'none', flexGrow: 1, display: 'flex', justifyContent: 'center' }}
               variant="h6"
               color="primary"
               href="/"
@@ -249,127 +272,86 @@ function Navbar() {
               {appConfig.name}
             </Link>
           )}
-
           <Stack
             direction="row"
             sx={{
               flexGrow: 1,
               display: { xs: 'none', md: 'flex' },
-              center: 'right',
               justifyContent: 'flex-end',
-              px: 2,
+              alignItems: 'center',
+              spacing: 2,
             }}
-            alignItems="center"
-            spacing={2}
           >
-            <Stack
-              direction="row"
-              sx={{
-                center: 'right',
-                justifyContent: 'flex-end',
-              }}
-              alignItems="center"
-              spacing={2}
-            >
-              <Link
-                color="inherit"
-                href="/"
-                sx={{ fontWeight: 600, textDecoration: 'none' }}
+            {isActive && (
+              <ButtonBase
+                onClick={handleOpenSelectNetworkDialog}
+                sx={(theme) => ({
+                  px: 2,
+                  py: 1,
+                  border: `1px solid ${theme.palette.divider}`,
+                  borderRadius: theme.spacing(1),
+                })}
               >
-                <FormattedMessage id="home" defaultMessage="Home" />
-              </Link>
-              {isActive && (
-                <Link
-                  color="inherit"
-                  href="/wallet"
-                  sx={{ fontWeight: 600, textDecoration: 'none' }}
-                >
-                  <FormattedMessage id="wallet" defaultMessage="Wallet" />
-                </Link>
-              )}
-            </Stack>
-            <Stack
-              direction="row"
-              spacing={2}
-              alignItems="center"
-              alignContent="center"
-            >
-              {/* <Button variant="outlined" color="primary">
-                Buy ETH
-              </Button> */}
-
-              {isActive && (
-                <ButtonBase
-                  onClick={handleOpenSelectNetworkDialog}
-                  sx={(theme) => ({
-                    px: 2,
-                    py: 1,
-                    border: `1px solid ${theme.palette.divider}`,
-                    borderRadius: theme.spacing(1),
-                  })}
-                >
-                  <Stack direction="row" spacing={1} alignItems="center">
-                    <Avatar
-                      src={getChainLogoImage(chainId)}
-                      sx={(theme) => ({
-                        width: 'auto',
-                        height: theme.spacing(2),
-                      })}
-                      alt={getChainName(chainId) || ''}
-                    />
-                    <Typography variant="body1">
-                      {getChainName(chainId)}
-                    </Typography>
-                    <KeyboardArrowDownIcon />
-                  </Stack>
-                </ButtonBase>
-              )}
-
-              {!isActive ? (
-                <Button
-                  variant="outlined"
-                  color="inherit"
-                  onClick={handleOpenConnectWalletDialog}
-                  startIcon={<Wallet />}
-                  endIcon={<ChevronRightIcon />}
-                >
-                  <FormattedMessage
-                    id="connect.wallet"
-                    defaultMessage="Connect Wallet"
-                    description="Connect wallet button"
+                <Stack direction="row" spacing={1} alignItems="center">
+                  <Avatar
+                    src={getChainLogoImage(chainId)}
+                    sx={(theme) => ({
+                      width: 'auto',
+                      height: theme.spacing(2),
+                    })}
+                    alt={getChainName(chainId) || ''}
                   />
-                </Button>
-              ) : (
-                <Stack direction="row" alignItems="center" spacing={2}>
-                  <WalletButton />
-                  <NoSsr>
-                    <IconButton onClick={handleOpenTransactions}>
-                      <Badge
-                        variant={
-                          hasPendingTransactions &&
-                          filteredUncheckedTransactions.length === 0
-                            ? 'dot'
-                            : 'standard'
-                        }
-                        color="primary"
-                        badgeContent={
-                          filteredUncheckedTransactions.length > 0
-                            ? filteredUncheckedTransactions.length
-                            : undefined
-                        }
-                        invisible={
-                          !hasPendingTransactions &&
-                          filteredUncheckedTransactions.length === 0
-                        }
-                      >
-                        <Notification />
-                      </Badge>
-                    </IconButton>
-                   
-                  </NoSsr>
+                  <Typography variant="body1">
+                    {getChainName(chainId)}
+                  </Typography>
+                  <KeyboardArrowDownIcon />
                 </Stack>
-              )}
-            </Stack>
+              </ButtonBase>
+            )}
+
+            {!isActive ? (
+              <Button
+                variant="outlined"
+                color="inherit"
+                onClick={handleOpenConnectWalletDialog}
+                startIcon={<Wallet />}
+                endIcon={<ChevronRightIcon />}
+              >
+                <FormattedMessage
+                  id="connect.wallet"
+                  defaultMessage="Connect Wallet"
+                  description="Connect wallet button"
+                />
+              </Button>
+            ) : (
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <WalletButton />
+                <NoSsr>
+                  <IconButton onClick={handleOpenTransactions}>
+                    <Badge
+                      variant={
+                        hasPendingTransactions &&
+                        filteredUncheckedTransactions.length === 0
+                          ? 'dot'
+                          : 'standard'
+                      }
+                      color="primary"
+                      badgeContent={
+                        filteredUncheckedTransactions.length > 0
+                          ? filteredUncheckedTransactions.length
+                          : undefined
+                      }
+                      invisible={
+                        !hasPendingTransactions &&
+                        filteredUncheckedTransactions.length === 0
+                      }
+                    >
+                      <Notification />
+                    </Badge>
+                  </IconButton>
+                </NoSsr>
+              </Stack>
+            )}
           </Stack>
           <Box
             sx={{
