@@ -29,31 +29,31 @@
   },
   "collections": [
     {
-      "image": "/assets/kittygotchi/banner_eth.svg",
-      "name": "Kittygotchi",
-      "backgroundImage": "/assets/kittygotchi/banner_eth.svg",
+      "image": "/assets/landbox/banner_eth.svg",
+      "name": "landbox",
+      "backgroundImage": "/assets/landbox/banner_eth.svg",
       "chainId": 1,
       "contractAddress": "0xe76591AD590765e9Ab9EdE82BEa274aFcF5Ce703",
       "description": "",
-      "uri": "kittygotchieth"
+      "uri": "landboxeth"
     },
     {
-      "image": "/assets/kittygotchi/banner_bsc.svg",
-      "name": "Kittygotchi",
-      "backgroundImage": "/assets/kittygotchi/banner_bsc.svg",
+      "image": "/assets/landbox/banner_bsc.svg",
+      "name": "landbox",
+      "backgroundImage": "/assets/landbox/banner_bsc.svg",
       "chainId": 56,
       "contractAddress": "0xf44112926506318e3Aace4381B2D76791D980Ac3",
       "description": "",
-      "uri": "kittygotchibsc"
+      "uri": "landboxbsc"
     },
     {
-      "image": "/assets/kittygotchi/banner_polygon.svg",
-      "name": "Kittygotchi",
-      "backgroundImage": "/assets/kittygotchi/banner_polygon.svg",
+      "image": "/assets/landbox/banner_polygon.svg",
+      "name": "landbox",
+      "backgroundImage": "/assets/landbox/banner_polygon.svg",
       "chainId": 137,
       "contractAddress": "0xEA88540adb1664999524d1a698cb84F6C922D2A1",
       "description": "",
-      "uri": "kittygotchi"
+      "uri": "landbox"
     }
   ],
   "tokens": [
@@ -145,7 +145,7 @@
       "sections": [
         {
           "type": "featured",
-          "title": "Kittygotchi Marketplace",
+          "title": "Landbox Property Marketplace",
           "items": [
             {
               "type": "asset",
@@ -164,7 +164,7 @@
               "title": "LandBox.id",
               "chainId": 137,
               "contractAddress": "0xEA88540adb1664999524d1a698cb84F6C922D2A1",
-              "backgroundImageUrl": "/assets/kittygotchi/banner.svg"
+              "backgroundImageUrl": "/assets/landbox/banner.svg"
             }
           ]
         },
@@ -178,21 +178,21 @@
               "title": "LandBox.id",
               "chainId": 137,
               "contractAddress": "0xEA88540adb1664999524d1a698cb84F6C922D2A1",
-              "backgroundImageUrl": "/assets/kittygotchi/banner_polygon.svg"
+              "backgroundImageUrl": "/assets/landbox/banner_polygon.svg"
             },
             {
               "type": "collection",
               "title": "LandBox.id",
               "chainId": 56,
               "contractAddress": "0xf44112926506318e3Aace4381B2D76791D980Ac3",
-              "backgroundImageUrl": "/assets/kittygotchi/banner_bsc.svg"
+              "backgroundImageUrl": "/assets/landbox/banner_bsc.svg"
             },
             {
               "type": "collection",
               "title": "LandBox.id",
               "chainId": 1,
               "contractAddress": "0xe76591AD590765e9Ab9EdE82BEa274aFcF5Ce703",
-              "backgroundImageUrl": "/assets/kittygotchi/banner_eth.svg"
+              "backgroundImageUrl": "/assets/landbox/banner_eth.svg"
             }
           ]
         },
