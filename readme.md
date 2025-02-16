@@ -6,9 +6,9 @@
 
 - Bhakiaji Ilham <a href="https://www.linkedin.com/in/bhaktiaji-ilham-930503245/">Linkedin</a>
 
-- Choirunnisa <a href=" https://www.linkedin.com/in/choirunnisa-choirunnisaa">Linkedin</a>
+- Choirunnisa <a href="https://www.linkedin.com/in/choirunnisa-choirunnisaa">Linkedin</a>
 
-- Zahra 
+- Zahra <a href="https://id.linkedin.com/in/zahra-sasongko-a08292271">Linkedin</a>
 
 ## Stack
 
@@ -19,7 +19,6 @@
 - Material UI - battle tested framework and easily configurable
 - TheGraph - Orders history and onchain orders discovery
 - ReactQuery - for fetching APIS and mutations
-
 
 ## Getting Started
 
