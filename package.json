@@ -1,6 +1,6 @@
 {
-  "name": "open-nft-marketplace",
-  "version": "0.0.2",
+  "name": "landbox.id",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev -p 3001",
@@ -30,6 +30,7 @@
     "@mui/x-date-pickers": "^5.0.0-alpha.2",
     "@react-hook/intersection-observer": "^3.1.1",
     "@svgr/webpack": "^6.2.1",
+    "@tailwindcss/cli": "^4.0.6",
     "@traderxyz/nft-swap-sdk": "0.25.0",
     "@transak/transak-sdk": "^1.0.31",
     "@walletconnect/ethereum-provider": "^1.7.7",
@@ -61,8 +62,11 @@
     "@formatjs/cli": "^4.8.3",
     "@types/qs": "^6.9.7",
     "@web3-react/types": "8.0.16-beta.0",
+    "autoprefixer": "^10.4.20",
     "eslint": "^8.14.0",
     "eslint-config-next": "^12.1.5",
+    "postcss": "^8.5.2",
+    "tailwindcss": "^4.0.6",
     "typescript": "^4.6.4"
   }
 }

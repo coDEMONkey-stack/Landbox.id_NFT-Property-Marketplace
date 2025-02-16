@@ -64,7 +64,7 @@ export function FeaturedSection({ title, items }: Props) {
           </Typography>
           <Typography variant="body1" color="gray" mt={2}>
             We revolutionizing Indonesia real estate market with Blockchain
-            and making property transactions faster, transparent, and
+            and making real estate transactions faster, transparent, and
             accessible. By tokenizing properties as NFTs, we eliminate
             lengthy paperwork, reduce costs, and ensure secure ownership
             records on the blockchain.

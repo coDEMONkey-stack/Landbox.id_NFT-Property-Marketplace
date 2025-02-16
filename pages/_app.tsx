@@ -7,6 +7,7 @@ import * as React from 'react';
 import { Hydrate, QueryClient, QueryClientProvider } from 'react-query';
 import createEmotionCache from '../src/createEmotionCache';
 import { getTheme } from '../src/theme';
+import '../pages/styles/globals.css';
 
 import { DefaultSeo } from 'next-seo';
 
