@@ -1,15 +1,3 @@
-# REQUIREMENTS
-
-DexKit Whitelabel Marketplace will use the follow technologies:
-
-- NEXT js - for handle SEO and app loading
-- Web3React - for web3 wallet management
-- TraderSDK - for easy swaps management using 0x behind the hood
-- Material UI - battle tested framework and easily configurable
-- TheGraph - Orders history and onchain orders discovery
-- ReactQuery - for fetching APIS and mutations
-- Typescript - for easy typings
-
 ## APP structure
 
 The Apps follows a standard structure by modules, being each module planned to act independently
