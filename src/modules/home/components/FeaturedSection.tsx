@@ -105,7 +105,7 @@ export function FeaturedSection({ title, items }: Props) {
         </Grid>
       </Grid>
 
-      <Grid container alignItems="center" spacing={4} marginTop="12">   
+      <Grid container alignItems="center" spacing={4} mt={8}>   
         <Grid item xs={12} md={8}>
           <Typography variant="body2" color="gray">
             How does it works?
@@ -114,53 +114,57 @@ export function FeaturedSection({ title, items }: Props) {
            Bringing Real Estate to the Blockchain Era
           </Typography>
 
+        <Grid container spacing={3} sx={{ display: "flex", flexWrap: "wrap" }}>
           {steps.map((step) => (
-          <Grid display="flex" item xs={12} sm={6} md={3} key={step.id}>
-            <Paper
-              sx={{
-                p: 3,
-                textAlign: "left",
-                backgroundColor: "#E0E0E0",
-                borderRadius: 2,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                gap: 1.5, 
-                height: "100%",
-              }}
-              elevation={0}
-            >
-              <Box
+            <Grid item xs={12} sm={6} md={3} key={step.id} sx={{display:"flex"}}>
+              <Paper
                 sx={{
-                  width: 40,
-                  height: 40,
-                  backgroundColor: "white",
+                  p: 3,
+                  textAlign: "left",
+                  backgroundColor: "#E0E0E0",
+                  borderRadius: 2,
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  borderRadius: 1,
-                  mb: 2,
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                  gap: 1.5,
+                  width: "100%",
+                  maxWidth: "500px!important",
+                  height: "100%",
                 }}
+                elevation={0}
               >
-                <Typography variant="body2" fontWeight="bold">
-                  Icon
+                <Box
+                  sx={{
+                    width: 40,
+                    height: 40,
+                    backgroundColor: "white",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    borderRadius: 1,
+                    mb: 2,
+                  }}
+                >
+                  <Typography variant="body2" fontWeight="bold">
+                    Icon
+                  </Typography>
+                </Box>
+
+                <Typography variant="h5" fontWeight="bold" sx={{ mb: 1 }}>
+                  {step.id}
                 </Typography>
-              </Box>
 
-              <Typography variant="h5" fontWeight="bold" sx={{ mb: 1 }}>
-                {step.id}
-              </Typography>
+                <Typography variant="h6" fontWeight="bold">
+                  {step.title}
+                </Typography>
 
-              <Typography variant="h6" fontWeight="bold">
-                {step.title}
-              </Typography>
-
-              <Typography variant="body2" color="textSecondary" mt={1}>
-                {step.description}
-              </Typography>
-            </Paper>
-          </Grid>
-        ))}
+                <Typography variant="body2" color="textSecondary" mt={1}>
+                  {step.description}
+                </Typography>
+              </Paper>
+            </Grid>
+          ))}
+        </Grid>
 
         </Grid>
       </Grid>

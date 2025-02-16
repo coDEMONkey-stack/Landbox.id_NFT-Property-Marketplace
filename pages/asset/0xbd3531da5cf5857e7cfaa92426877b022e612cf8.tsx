@@ -5,8 +5,28 @@ import { FormattedMessage } from 'react-intl';
 import { PageHeader } from '../../src/components/PageHeader';
 import Image from "next/image";
 
+interface Asset {
+  name: string;
+  description: string;
+  offers: {
+    price: string;
+    idrPrice: string;
+    expiration: string;
+    from: string;
+  }[];
+  priceHistory: string[];
+  itemActivity: {
+    event: string;
+    price: string;
+    idrPrice: string;
+    from: string;
+    to: string;
+    toHash: string;
+  }[];
+}
+
 const AssetDetailPage = () => {
-  const asset = {
+  const asset: Asset = {
     name: "Example Asset",
     description: "This is a sample asset description.",
     offers: [
@@ -43,7 +63,7 @@ const AssetDetailPage = () => {
   );
 };
 
-const AssetLeftSection = ({ asset }) => {
+const AssetLeftSection: React.FC<{ asset: Asset }> = ({ asset }) => {
   return (
     <div className="p-4 border rounded-lg shadow-md">
       <Image src="/assets/images/landbox.png" alt="Landbox" width={500} height={300} className="rounded-lg" />
@@ -53,7 +73,7 @@ const AssetLeftSection = ({ asset }) => {
   );
 };
 
-const AssetRightSection = ({ asset }) => {
+const AssetRightSection: React.FC<{ asset: Asset }> = ({ asset }) => {
   return (
     <div className="p-4 border rounded-lg shadow-md">
       <h3 className="text-lg font-semibold mb-2">Offers</h3>
