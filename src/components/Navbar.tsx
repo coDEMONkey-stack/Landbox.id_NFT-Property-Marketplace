@@ -26,6 +26,7 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
+import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import { useWeb3React } from '@web3-react/core';
 
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
@@ -109,10 +110,10 @@ function Navbar() {
     return uncheckedTransactions.filter((tx) => tx.chainId === chainId);
   }, [chainId, uncheckedTransactions]);
 
-  const [showTransactions, setShowTransactions] = useState(false);
+  // const [showTransactions, setShowTransactions] = useState(false);
 
-  const handleOpenTransactions = () => setShowTransactions(true);
-  const handleCloseNotifications = () => setShowTransactions(false);
+  // const handleOpenTransactions = () => setShowTransactions(true);
+  // const handleCloseNotifications = () => setShowTransactions(false);
 
   const setIsDrawerOpen = useUpdateAtom(drawerIsOpenAtom);
 
@@ -169,14 +170,6 @@ function Navbar() {
         }}
       >
       </Menu>
-      <AppTransactionsDialog
-        dialogProps={{
-          maxWidth: 'sm',
-          open: showTransactions,
-          fullWidth: true,
-          onClose: handleCloseNotifications,
-        }}
-      />
       <SelectNetworkDialog
         dialogProps={{
           maxWidth: 'sm',
@@ -228,23 +221,31 @@ function Navbar() {
           >
             <Link
               color="inherit"
-              href="/"
-              sx={{ fontWeight: 600, textDecoration: 'none', mr: 2 }}
+              href="/updates"
+              sx={{ fontWeight: 600, textDecoration: 'none', mr:2 }}
             >
-              <FormattedMessage id="home" defaultMessage="Home" />
+              <FormattedMessage id="updates" defaultMessage="Updates" />
             </Link>
-            {isActive && (
-              <Link
-                color="inherit"
-                href="/wallet"
-                sx={{ fontWeight: 600, textDecoration: 'none' }}
-              >
-                <FormattedMessage id="wallet" defaultMessage="Wallet" />
-              </Link>
-            )}
+
+            <Link
+              color="inherit"
+              href="/properties"
+              sx={{ fontWeight: 600, textDecoration: 'none', mr:2 }}
+            >
+              <FormattedMessage id="properties" defaultMessage="Properties" />
+            </Link>
+
+            <Link
+              color="inherit"
+              href="/sell"
+              sx={{ fontWeight: 600, textDecoration: 'none' }}
+            >
+              <FormattedMessage id="sell" defaultMessage="Sell" />
+            </Link>
+          
           </Stack>
           {appConfig?.logo ? (
-            <Link href="/" sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center' }}>
+            <Link href="/" sx={{ flexGrow: 1, display: 'flex', justifyContent: 'center', alignItems: 'center',ml:20 }}>
               <LogoImage
                 src={appConfig?.logo.url}
                 alt={appConfig.name}
@@ -289,10 +290,11 @@ function Navbar() {
                   px: 2,
                   py: 1,
                   border: `1px solid ${theme.palette.divider}`,
-                  borderRadius: theme.spacing(1),
+                  borderRadius: theme.spacing(2),
+                  marginRight: 1,
                 })}
               >
-                <Stack direction="row" spacing={1} alignItems="center">
+                <Stack direction="row" spacing={3} alignItems="center">
                   <Avatar
                     src={getChainLogoImage(chainId)}
                     sx={(theme) => ({
@@ -301,9 +303,9 @@ function Navbar() {
                     })}
                     alt={getChainName(chainId) || ''}
                   />
-                  <Typography variant="body1">
+                  {/* <Typography variant="body1">
                     {getChainName(chainId)}
-                  </Typography>
+                  </Typography> */}
                   <KeyboardArrowDownIcon />
                 </Stack>
               </ButtonBase>
@@ -327,7 +329,7 @@ function Navbar() {
               <Stack direction="row" alignItems="center" spacing={2}>
                 <WalletButton />
                 <NoSsr>
-                  <IconButton onClick={handleOpenTransactions}>
+                  <IconButton>
                     <Badge
                       variant={
                         hasPendingTransactions &&
@@ -346,7 +348,15 @@ function Navbar() {
                         filteredUncheckedTransactions.length === 0
                       }
                     >
-                      <Notification />
+                      {isActive && (
+                        <Link
+                          color="inherit"
+                          href="/wallet"
+                          sx={{ fontWeight: 600, textDecoration: 'none', display: 'flex', alignItems: 'center', gap: 1 }}
+                        >
+                          <PermIdentityIcon fontSize="small" />
+                        </Link>
+                      )}
                     </Badge>
                   </IconButton>
                 </NoSsr>
@@ -364,7 +374,7 @@ function Navbar() {
             }}
           >
             <NoSsr>
-              <IconButton onClick={handleOpenTransactions}>
+              <IconButton>
                 <Badge
                   variant={
                     hasPendingTransactions &&
